@@ -1,0 +1,13 @@
+<div class="float-right" style="padding-right: 30px; padding-top: 20px;">
+  <a [routerLink]="['/album', albumId]" routerLinkActive="router-link-active" class="btn btn-outline-success">
+    Go Back to album
+  </a>
+</div><br>
+<br><br>
+<div style="width: 500px; margin: auto;">
+
+<div class="form-group">
+    <label>Upload Photo</label>
+    <input type="file" class="form-control-file" (change)="uploadPhoto($event.target.files[0])">
+</div>
+</div>

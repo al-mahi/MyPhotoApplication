@@ -1,0 +1,20 @@
+<div class="float-right" style="padding-right: 30px; padding-top: 20px;">
+  <a [routerLink]="['/create']" routerLinkActive="router-link-active" class="btn btn-outline-success">
+    Create Album
+  </a>
+</div><br>
+<h3 *ngIf="user">Album of {{user.name}}:</h3><br>
+<div class="row">
+  <ng-container *ngFor="let album of albums">
+    <div class="col-sm-3 pt-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="album.coverPhotoUrl" alt="Card image cap" width="200" height="200">
+            <div class="card-body">
+                <h5 class="card-title">{{album.title}}</h5>
+                <a [routerLink]="['/album', album.id]" class="btn btn-primary">Go to Album</a>
+            </div>
+        </div>
+    </div>
+</ng-container>
+</div>
+

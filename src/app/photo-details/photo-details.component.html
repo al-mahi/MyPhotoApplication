@@ -1,0 +1,55 @@
+<div class="float-right" style="padding-right: 30px; padding-top: 20px;">
+  <div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Set Photo As
+    </a>
+  
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" (click)="makeCoverPhoto()">Cover Photo</a>
+      <a class="dropdown-item" (click)="makeProfilePhoto()">Profile Photo</a>
+    </div>
+  </div>
+</div><br>
+
+<div class="float-right" style="padding-right: 10px; padding-top: -20px;">
+  <a [routerLink]="['/album', photo.albumId]" routerLinkActive="router-link-active" class="btn btn-outline-success">
+    Go Back to album
+  </a>
+</div><br>
+
+
+
+<div style="width: 400px; margin: auto" *ngIf="photo">
+  <img [src]="photo.photoUrl" class="rounded" width="450px">
+</div>
+
+<br>
+
+<h3>Comments</h3>
+
+<div style="width: 600px; margin: auto;">
+
+  <div>
+    <textarea class="form-control" rows="3" [(ngModel)]="newComment"></textarea>
+  </div>
+
+  <div class="float-right">
+    <button type="button" class="btn btn-primary" [disabled]="!newComment" (click)="saveComment()">Post Comment</button>
+  </div>
+
+<br><br>
+
+<div class="float-right">
+  <button type="button" class="btn btn-primary" [disabled]="allComments.length == 0" (click)="toggleCommentOrder()">Comments Order</button>
+</div>
+
+<br><br>
+  <div *ngIf="allComments">
+    <div class="alert alert-primary" style="text-align: right;" role="alert" *ngFor="let comment of allComments">
+      {{comment.comment}} -- {{comment.createdBy}} on {{comment.dateCreated}}
+    </div>
+  </div>
+
+</div>
+
+

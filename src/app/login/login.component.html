@@ -1,0 +1,61 @@
+
+<div *ngIf="userService.user | async">
+<h6>Welcome {{ (userService.user | async)?.email }}!</h6>
+</div>
+
+<div *ngIf="!(userService.user | async)">
+  <div style="width: 400px; margin: auto" *ngIf="SignInFormVisible; else SignUpForm">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" (click)="makeSignInFormVisible()">Sign In</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="makeSignUpFormVisible()">Sign Up</a>
+      </li>
+    </ul>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" class="form-control" [(ngModel)]="email" aria-describedby="emailHelp"
+        placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="signIn()">Sign In</button>
+  </div>
+
+  <ng-template #SignUpForm>
+    <div style="width: 400px; margin: auto">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" (click)="makeSignInFormVisible()">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" (click)="makeSignUpFormVisible()">Sign Up</a>
+        </li>
+      </ul>
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Name">
+      </div>
+
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" class="form-control" [(ngModel)]="email" aria-describedby="emailHelp2"
+          placeholder="Enter email">
+        <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password">
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="signUp()">Sign Up</button>
+
+    </div>
+  </ng-template>
+
+</div>

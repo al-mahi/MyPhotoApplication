@@ -1,0 +1,12 @@
+<h2>Create Album</h2>
+
+<div style="width: 500px; margin: auto;">
+<div>
+    <label>Album Name</label>
+    <input type="text" class="form-control" [(ngModel)]="albumTitle" placeholder="Enter Album Name">
+</div>
+<div class="form-group">
+    <label>Cover Photo</label>
+    <input type="file" class="form-control-file" [disabled]="!albumTitle" (change)="createAlbum($event.target.files[0])">
+</div>
+</div>

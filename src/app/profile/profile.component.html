@@ -1,0 +1,12 @@
+<div class="card text-center"  *ngIf="user">
+    <div class="card-header">
+      {{user.name}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{user.emailAddress}}</h5>
+      <img [src]="user.profilePhotoUrl" width="200" class="rounded-circle">
+    </div>
+    <div class="card-footer text-muted">
+      Views {{ViewCount}}
+    </div>
+  </div>
