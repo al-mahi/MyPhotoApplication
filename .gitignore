@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 # Sensitive file
-environments/*
+src/environments/*
